@@ -1398,6 +1398,7 @@ bool NavEKF3::getOriginLLH(Location &loc) const
 bool NavEKF3::setOriginLLH(const Location &loc)
 {
     dal.log_SetOriginLLH3(loc);
+    // GCS_SEND_TEXT(MAV_SEVERITY_INFO, "NavEKF3::setOriginLLH");
 
     if (!core) {
         return false;
