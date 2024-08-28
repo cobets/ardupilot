@@ -1459,6 +1459,7 @@ bool AP_AHRS::set_origin(const Location &loc)
 #endif
 #if HAL_NAVEKF3_AVAILABLE
     const bool ret3 = EKF3.setOriginLLH(loc);
+    // GCS_SEND_TEXT(MAV_SEVERITY_INFO, "AP_AHRS::set_origin");
 #endif
 #if AP_AHRS_EXTERNAL_ENABLED
     const bool ret_ext = external.set_origin(loc);
