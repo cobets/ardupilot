@@ -992,7 +992,7 @@ void NavEKF3_core::readRngBcnData()
     );
 */
     // Check if the range beacon data can be used to align the vehicle position
-    if ((imuSampleTime_ms - rngBcn.last3DmeasTime_ms < 250) && (rngBcn.vehiclePosErr < 2.0f) && rngBcn.alignmentCompleted) {
+    if ((imuSampleTime_ms - rngBcn.last3DmeasTime_ms < 250) && (rngBcn.vehiclePosErr < 1.0f) && rngBcn.alignmentCompleted) {
         // check for consistency between the position reported by the beacon and the position from the 3-State alignment filter
         const ftype posDiffSq = sq(rngBcn.receiverPos.x - rngBcn.vehiclePosNED.x) + sq(rngBcn.receiverPos.y - rngBcn.vehiclePosNED.y);
         const ftype posDiffVar = sq(rngBcn.vehiclePosErr) + rngBcn.receiverPosCov[0][0] + rngBcn.receiverPosCov[1][1];
